@@ -15,15 +15,15 @@ module.exports = {
 };
 
 class Processor {
-	constructor(processors, ignores) {
+	constructor(mapping, processors, ignores) {
 		this.ignores = _.extend({classes: [], ids: []}, ignores);
 
 		//ensure processor names are set as expected
 		this.processors = processorUtils.extendDefaults(processors);
 
 		//build new libraries to use
-		this.classLibrary = new Library(this.ignores.classes || []);
-		this.idLibrary = new Library(this.ignores.ids || []);
+		this.classLibrary = new Library(this.ignores.classes || [], mapping);
+		this.idLibrary = new Library(this.ignores.ids || [], mapping);
 	}
 
 	run() {

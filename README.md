@@ -1,5 +1,20 @@
-# This project is looking for a maintainer
-I am no longer maintaining this repository and would be happy to transfer it to someone who still actively uses it. Respond to the [maintainer issue](https://github.com/cazzer/gulp-selectors/issues/26) if you are interested in taking ownership. In case you are interested, I use [css-modules](https://github.com/css-modules/css-modules) now instead.
+# This project is a bit of a hack
+This is a fork of [gulp-selectors](https://github.com/cazzer/gulp-selectors) which is modified to replace CSS selectors according to a pre-defined mapping. I modified the original for my own use, but not intending it for public use necessarily. You are more than welcome to use it, but I cannot support it in anyway.
+
+It is modified such that the first parameter you pass is a mapping of long names to short names that you want replaced in your CSS selectors. I was looking to minify selectors as my BEM style CSS names were very long, but I wanted the output code to still be readable rather than totally shortened.
+
+Up top in your gulp file:
+
+```var css_map = {"carousel": "csl"};```
+
+Then in your tasks:
+```
+gs.run(css_map, {}, {})
+```
+
+Now all instances of `carousel` in CSS selectors will be replaced with `csl`.
+
+The rest of the docs below are not updated!
 
 # gulp-selectors
 [![Build Status][travis-image]][travis-url] [![Code Climate][cc-image]][cc-url] [![Test Coverage][coverage-image]][coverage-url] [![NPM Version][npm-image]][npm-url]
